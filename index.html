@@ -9,33 +9,35 @@
     <style>
         body {
             font-family: 'Sarabun', sans-serif;
-            background-color: #fff; /* Set background to white for PDF */
         }
         /* CSS สำหรับการพิมพ์และ PDF */
         @media print {
             body {
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
+                background-color: #fff; /* Ensure background is white on print */
             }
             .no-print {
                 display: none !important;
             }
             .print-container {
-                box-shadow: none;
-                border: none;
+                box-shadow: none !important;
+                border: none !important;
                 margin: 0;
                 padding: 0;
             }
         }
         .print-container {
-             box-shadow: none;
-             border: none;
+            /* Added a shadow to simulate a piece of paper */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e5e7eb; /* A subtle border */
         }
     </style>
 </head>
-<body class="bg-white p-4 sm:p-8">
-    <div class="max-w-4xl mx-auto bg-white p-8 sm:p-12 print-container">
+<body class="bg-gray-100 p-4 sm:p-8">
+    <div class="max-w-4xl mx-auto bg-white p-8 sm:p-12 print-container rounded-lg">
 
+        <!-- Header -->
         <div class="flex justify-between items-start mb-8">
             <div>
                 <h1 class="text-3xl font-bold text-gray-800">ใบเสนอราคา</h1>
@@ -48,6 +50,7 @@
             </div>
         </div>
 
+        <!-- Document Info -->
         <div class="grid grid-cols-2 gap-4 mb-10">
             <div>
                 <p class="font-bold">เสนอถึง:</p>
@@ -59,16 +62,18 @@
             </div>
         </div>
 
+        <!-- Subject -->
         <div class="mb-8">
             <p><span class="font-bold">เรื่อง:</span> การพัฒนาแอปพลิเคชันระบบบันทึกเวลาทำงาน (Time Attendance) - Premium Package</p>
         </div>
 
+        <!-- Scope of Work Table -->
         <div class="mb-8">
             <h3 class="text-lg font-bold border-b-2 border-gray-200 pb-2 mb-4">1. ขอบเขตการทำงาน (Scope of Work)</h3>
             <table class="w-full text-left">
                 <thead>
                     <tr class="bg-gray-100">
-                        <th class="p-3 font-bold">รายละเอียด</th>
+                        <th class="p-3 font-bold rounded-t-lg">รายละเอียด</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -99,12 +104,14 @@
             </table>
         </div>
         
+        <!-- Timeline -->
         <div class="mb-8">
              <h3 class="text-lg font-bold border-b-2 border-gray-200 pb-2 mb-4">2. ระยะเวลาดำเนินงาน (Project Timeline)</h3>
              <p><strong>ระยะเวลาโดยประมาณ:</strong> 3 - 5 เดือน</p>
         </div>
 
 
+        <!-- Pricing Table -->
         <div class="mb-8">
             <h3 class="text-lg font-bold border-b-2 border-gray-200 pb-2 mb-4">3. งบประมาณการลงทุน (Investment)</h3>
             <table class="w-full text-left">
@@ -129,6 +136,7 @@
             </table>
         </div>
 
+        <!-- Warranty & Service -->
         <div class="mb-8">
              <h3 class="text-lg font-bold border-b-2 border-gray-200 pb-2 mb-4">4. การรับประกันและบริการ (Warranty & Service)</h3>
              <ul class="list-disc list-inside text-gray-700">
@@ -138,6 +146,7 @@
              </ul>
         </div>
         
+        <!-- Payment Terms -->
         <div class="mb-12">
              <h3 class="text-lg font-bold border-b-2 border-gray-200 pb-2 mb-4">5. เงื่อนไขการชำระเงิน (Payment Terms)</h3>
              <ul class="list-disc list-inside text-gray-700">
@@ -147,8 +156,9 @@
              </ul>
         </div>
         
+        <!-- Print Button -->
         <div class="text-center mt-12 no-print">
-            <button onclick="window.print()" class="bg-blue-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-blue-700 transition duration-300">
+            <button onclick="window.print()" class="bg-blue-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-blue-700 transition duration-300 shadow-lg hover:shadow-xl">
                 บันทึกเป็น PDF / พิมพ์
             </button>
         </div>
